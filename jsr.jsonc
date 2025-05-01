@@ -1,0 +1,20 @@
+{
+  "$schema": "https://jsr.io/schema/config-file.v1.json",
+  "version": "1.1.0",
+  "name": "@augustinmauroy/twas",
+  "exports": "./dist/index.js",
+  "license": "MIT",
+  "publish": {
+    "include": [
+      "README.md",
+      "LICENSE",
+      "dist/**/*.js",
+      "dist/**/*.d.ts",
+      "dist/**/*.map"
+    ],
+    // https://jsr.io/docs/publishing-packages#un-gitignoring-files-when-not-using-include
+    "exclude": [
+      "!dist"
+    ]
+  }
+}

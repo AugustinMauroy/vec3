@@ -1,0 +1,11 @@
+# Node
+node_modules
+
+# OSX
+.DS_Store
+
+# Generated files
+dist
+
+# Test
+coverage.lcov
