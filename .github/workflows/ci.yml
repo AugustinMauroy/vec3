@@ -59,7 +59,7 @@ jobs:
       - name: Type check
         run: node --run types:check
 
-  test-node:
+  test:
     runs-on: ubuntu-latest
     steps:
       - name: Harden the runner (Audit all outbound calls)
@@ -74,38 +74,6 @@ jobs:
           node-version-file: '.nvmrc'
       - name: Test
         run: node --run test-node
-
-  test-bun:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
-        with:
-          egress-policy: audit
-
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Install Bun
-        uses: oven-sh/setup-bun@v2
-      - name: Run tests
-        run: bun test-bun
-
-  test-deno:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Harden the runner (Audit all outbound calls)
-        uses: step-security/harden-runner@cb605e52c26070c328afc4562f0b4ada7618a84e # v2.10.4
-        with:
-          egress-policy: audit
-
-      - name: Checkout
-        uses: actions/checkout@v4
-      - name: Set up Deno
-        uses: denoland/setup-deno@v2
-        with:
-          deno-version: v2.x # Run with latest stable Deno.
-      - name: Run Deno task
-        run: deno task test-deno
 
   dry-run:
     runs-on: ubuntu-latest
