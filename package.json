@@ -6,7 +6,11 @@
   "author": "Augustin Mauroy",
   "license": "MIT",
   "main": "dist/mod.js",
-  "files": ["README.md", "LICENSE", "dist"],
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
   "scripts": {
     "biome:format:fix": "biome format --fix ./",
     "biome:format": "biome format ./",
@@ -22,6 +26,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.15.3",
+    "bench-node": "^0.6.0",
     "typescript": "^5.8.3"
   },
   "repository": {
