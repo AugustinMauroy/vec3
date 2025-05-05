@@ -22,6 +22,7 @@
   "devDependencies": {
     "@biomejs/biome": "^1.9.4",
     "@types/node": "^22.15.3",
+    "bench-node": "^0.6.0",
     "typescript": "^5.8.3"
   },
   "repository": {
