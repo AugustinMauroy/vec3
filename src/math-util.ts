@@ -15,6 +15,7 @@
  * ```ts
  * euclideanMod(7, 3); // Returns 1
  * euclideanMod(-7, 3); // Returns 2
+ * euclideanMod(7, 0); // Throws an error
  * ```
  */
 export function euclideanMod(numerator: number, denominator: number): number {

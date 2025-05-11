@@ -2,6 +2,14 @@
 
 import { euclideanMod } from "./math-util.ts";
 
+/**
+ * Regular expression to match a string representation of a 3D vector in the format "(x, y, z)".
+ * The x, y, and z values can be integers or floating-point numbers.
+ *
+ * @example
+ * - "(1, 2, 3)" matches
+ * - "(1.5, -2.3, 0)" matches
+ */
 const re = /\((-?[.\d]+), (-?[.\d]+), (-?[.\d]+)\)/;
 
 /**
@@ -186,10 +194,19 @@ export class Vec3 {
 	 * @param other - The vector to add.
 	 * @returns The updated vector.
 	 */
-	add(other: Vec3): this {
-		this.x += other.x;
-		this.y += other.y;
-		this.z += other.z;
+	add(other: Vec3 | Array<Vec3>): this {
+		if (Array.isArray(other)) {
+			for (const vec of other) {
+				this.x += vec.x;
+				this.y += vec.y;
+				this.z += vec.z;
+			}
+		} else if (other instanceof Vec3) {
+			this.x += other.x;
+			this.y += other.y;
+			this.z += other.z;
+		}
+
 		return this;
 	}
 
@@ -199,10 +216,18 @@ export class Vec3 {
 	 * @param other - The vector to subtract.
 	 * @returns The updated vector.
 	 */
-	subtract(other: Vec3): this {
-		this.x -= other.x;
-		this.y -= other.y;
-		this.z -= other.z;
+	subtract(other: Vec3 | Array<Vec3>): this {
+		if (Array.isArray(other)) {
+			for (const vec of other) {
+				this.x -= vec.x;
+				this.y -= vec.y;
+				this.z -= vec.z;
+			}
+		} else if (other instanceof Vec3) {
+			this.x -= other.x;
+			this.y -= other.y;
+			this.z -= other.z;
+		}
 		return this;
 	}
 
@@ -212,10 +237,18 @@ export class Vec3 {
 	 * @param other - The vector to multiply by.
 	 * @returns The updated vector.
 	 */
-	multiply(other: Vec3): this {
-		this.x *= other.x;
-		this.y *= other.y;
-		this.z *= other.z;
+	multiply(other: Vec3 | Array<Vec3>): this {
+		if (Array.isArray(other)) {
+			for (const vec of other) {
+				this.x *= vec.x;
+				this.y *= vec.y;
+				this.z *= vec.z;
+			}
+		} else if (other instanceof Vec3) {
+			this.x *= other.x;
+			this.y *= other.y;
+			this.z *= other.z;
+		}
 		return this;
 	}
 
@@ -225,10 +258,18 @@ export class Vec3 {
 	 * @param other - The vector to divide by.
 	 * @returns The updated vector.
 	 */
-	divide(other: Vec3): this {
-		this.x /= other.x;
-		this.y /= other.y;
-		this.z /= other.z;
+	divide(other: Vec3 | Array<Vec3>): this {
+		if (Array.isArray(other)) {
+			for (const vec of other) {
+				this.x /= vec.x;
+				this.y /= vec.y;
+				this.z /= vec.z;
+			}
+		} else if (other instanceof Vec3) {
+			this.x /= other.x;
+			this.y /= other.y;
+			this.z /= other.z;
+		}
 		return this;
 	}
 
@@ -586,7 +627,7 @@ export function v(x?: Vec3Input, y?: Vec3Input, z?: Vec3Input): Vec3 {
 	if (!Number.isNaN(xNum) && !Number.isNaN(yNum) && !Number.isNaN(zNum)) {
 		return new Vec3(xNum, yNum, zNum);
 	}
-	// Fallback or throw error for unexpected input types
+
 	console.warn("vec3: unexpected input types, returning zero vector.", x, y, z);
 	return new Vec3(0, 0, 0);
 }
