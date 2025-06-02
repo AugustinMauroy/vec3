@@ -1,6 +1,6 @@
 {
   "$schema": "https://jsr.io/schema/config-file.v1.json",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "@augustinmauroy/vec3",
   "description": "A small and efficient JavaScript library for 3D vector math. It provides a simple API for creating, manipulating, and performing operations on 3D vectors.",
   "exports": "./dist/mod.js",
