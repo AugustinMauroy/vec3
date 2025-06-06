@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { Vec3, v } from "../src/mod.ts";
+import { Vec3, v } from "./mod.ts";
 
 describe("v()", { concurrency: true }, () => {
 	it("no args", () => {
