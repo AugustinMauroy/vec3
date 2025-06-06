@@ -446,6 +446,13 @@ describe("vec3", { concurrency: true }, () => {
 		assert.strictEqual(angle2, expected);
 	});
 
+	it("angleTo return 0 when both norm is 0", () => {
+		const v1 = new Vec3(0, 0, 0);
+		const v2 = new Vec3(0, 0, 0);
+		const angle = v1.angleTo(v2);
+		assert.strictEqual(angle, 0);
+	});
+
 	it("volume", () => {
 		const v1 = new Vec3(3, 4, 5);
 
