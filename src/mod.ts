@@ -336,6 +336,24 @@ export class Vec3 {
 	}
 
 	/**
+	 * Calculates the angle in radians between this vector and another vector.
+	 * @param other - The vector to calculate the angle to.
+	 * Calculates the angle in radians between this vector and another vector.
+	 * The angle is calculated using the dot product and the norms of the vectors.
+	 * @returns The angle in radians.
+	 */
+	angleTo(other: Vec3): number {
+		const dotProduct = this.dot(other);
+		const normA = this.norm();
+		const normB = other.norm();
+		if (normA === 0 || normB === 0) {
+			return 0; // Avoid division by zero
+		}
+		const cosTheta = dotProduct / (normA * normB);
+		return Math.acos(Math.max(-1, Math.min(1, cosTheta))); // Clamp value to avoid NaN
+	}
+
+	/**
 	 * Calculates the Euclidean distance to another vector.
 	 *
 	 * @param other - The vector to calculate the distance to.

@@ -435,6 +435,17 @@ describe("vec3", { concurrency: true }, () => {
 		assert.strictEqual(v3.z, 15);
 	});
 
+	it("angleTo", () => {
+		const v1 = new Vec3(1, 0, 0);
+		const v2 = new Vec3(0, 1, 0);
+
+		const angle1 = v1.angleTo(v2);
+		const angle2 = v2.angleTo(v1);
+		const expected = Math.PI / 2;
+		assert.strictEqual(angle1, expected);
+		assert.strictEqual(angle2, expected);
+	});
+
 	it("volume", () => {
 		const v1 = new Vec3(3, 4, 5);
 
