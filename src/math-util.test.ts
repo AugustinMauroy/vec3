@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import { describe, it } from "node:test";
-import { euclideanMod } from "../src/math-util.ts";
+import { euclideanMod } from "./math-util.ts";
 
 describe("math-util", () => {
 	describe("euclideanMod", () => {
