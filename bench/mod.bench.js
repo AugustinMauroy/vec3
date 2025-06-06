@@ -107,6 +107,10 @@ suite.add("vec3 modulus", () => {
 	vecA.modulus(vecB);
 });
 
+suite.add("vec3 angleTo", () => {
+	vecA.angleTo(vecB);
+});
+
 suite.add("vec3 distanceTo", () => {
 	vecA.distanceTo(vecB);
 });
